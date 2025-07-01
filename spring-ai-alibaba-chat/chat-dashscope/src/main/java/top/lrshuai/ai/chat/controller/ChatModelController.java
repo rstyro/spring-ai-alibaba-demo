@@ -1,14 +1,14 @@
-package top.lrshuai.chat.controller;
+package top.lrshuai.ai.chat.controller;
 
 
 import com.alibaba.cloud.ai.dashscope.api.DashScopeApi;
 import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatOptions;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,15 +22,12 @@ import java.util.Map;
 @RestController
 public class ChatModelController {
 
-    private final ChatModel dashScopeChatModel;
+    @Resource
+    @Qualifier("dashscopeChatModel")
+    private ChatModel dashScopeChatModel;
 
     private static final String DEFAULT_PROMPT = "你是一个博学的智能聊天助手，请根据用户提问回答！";
     private static final String DEFAULT_QUESTION = "你好，很高兴认识你，能简单介绍一下自己吗？";
-
-    public ChatModelController(ChatModel chatModel) {
-        this.dashScopeChatModel = chatModel;
-    }
-
 
     /**
      * 最简单的使用方式，没有任何 LLMs 参数注入。

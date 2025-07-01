@@ -1,9 +1,11 @@
-package top.lrshuai.chat.controller;
+package top.lrshuai.ai.chat.controller;
 
 import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatOptions;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.chat.model.ChatModel;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,8 +20,8 @@ public class ChatClientController {
 
     private static final String DEFAULT_PROMPT = "你是一个博学的智能聊天助手，请根据用户提问回答！";
 
-    public ChatClientController(ChatClient.Builder chatClientBuilder) {
-        this.dashScopeChatClient = chatClientBuilder
+    public ChatClientController(@Qualifier("dashscopeChatModel") ChatModel dashscopeChatModel) {
+        this.dashScopeChatClient = ChatClient.builder(dashscopeChatModel)
                 .defaultSystem(DEFAULT_PROMPT)
                 // 实现 Logger 的 Advisor
                 .defaultAdvisors(

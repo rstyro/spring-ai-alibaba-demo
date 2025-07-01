@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>top.lrshuai</groupId>
+    <groupId>top.lrshuai.ai</groupId>
     <artifactId>spring-ai-alibaba-demo</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
@@ -32,16 +32,10 @@
     </properties>
 
      <modules>
+	 <module>commons</module>
         <module>spring-ai-alibaba-chat</module>
-
-    </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
+         
+     </modules>
 
     <!-- 依赖声明 -->
     <dependencyManagement>
@@ -77,6 +71,14 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>top.lrshuai.ai</groupId>
+                <artifactId>common-pom</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
         </dependencies>

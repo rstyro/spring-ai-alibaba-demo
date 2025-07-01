@@ -5,37 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>top.lrshuai</groupId>
+        <groupId>top.lrshuai.ai</groupId>
         <artifactId>spring-ai-alibaba-demo</artifactId>
         <version>${revision}</version>
     </parent>
 
     <artifactId>spring-ai-alibaba-chat</artifactId>
-    <packaging>jar</packaging>
-    <description>聊天</description>
+    <packaging>pom</packaging>
+    <description>聊天相关</description>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud.ai</groupId>
-            <artifactId>spring-ai-alibaba-starter-dashscope</artifactId>
-        </dependency>
-
-
-    </dependencies>
-
-
-   <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>chat-dashscope</module>
+    </modules>
 
 </project>

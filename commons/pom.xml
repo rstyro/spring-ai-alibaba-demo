@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.lrshuai.ai</groupId>
+        <artifactId>spring-ai-alibaba-demo</artifactId>
+        <version>${revision}</version>
+    </parent>
+	
+    <artifactId>commons</artifactId>
+    <packaging>pom</packaging>
+    <name>commons</name>
+    <description>通用模块</description>
+	
+    <modules>
+        <module>common-core</module>
+        <module>common-pom</module>
+    </modules>
+
+
+
+</project>
