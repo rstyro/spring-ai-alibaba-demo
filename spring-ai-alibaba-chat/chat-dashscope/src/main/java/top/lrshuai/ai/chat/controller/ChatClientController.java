@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
-@RequestMapping("/chatClient")
+import static top.lrshuai.ai.chat.controller.ChatModelController.DEFAULT_QUESTION;
+
+@RequestMapping("/client")
 @RestController
 public class ChatClientController {
 
@@ -20,7 +22,7 @@ public class ChatClientController {
 
     private static final String DEFAULT_PROMPT = "你是一个博学的智能聊天助手，请根据用户提问回答！";
 
-    public ChatClientController(@Qualifier("dashscopeChatModel") ChatModel dashscopeChatModel) {
+    public ChatClientController(ChatModel dashscopeChatModel) {
         this.dashScopeChatClient = ChatClient.builder(dashscopeChatModel)
                 .defaultSystem(DEFAULT_PROMPT)
                 // 实现 Logger 的 Advisor
@@ -40,7 +42,7 @@ public class ChatClientController {
      * ChatClient 简单调用
      */
     @GetMapping("/simple")
-    public String simpleChat(@RequestParam(value = "query", defaultValue = "你好，很高兴认识你，能简单介绍一下自己吗？") String query) {
+    public String simpleChat(@RequestParam(value = "query", defaultValue = DEFAULT_QUESTION) String query) {
         return dashScopeChatClient.prompt(query).call().content();
     }
 
@@ -48,7 +50,8 @@ public class ChatClientController {
      * ChatClient 流式调用
      */
     @GetMapping("/stream")
-    public Flux<String> streamChat(@RequestParam(value = "query", defaultValue = "你好，很高兴认识你，能简单介绍一下自己吗？") String query,HttpServletResponse response) {
+    public Flux<String> streamChat(@RequestParam(value = "query", defaultValue = DEFAULT_QUESTION) String query
+            ,HttpServletResponse response) {
         response.setCharacterEncoding("UTF-8");
         return dashScopeChatClient.prompt(query).stream().content();
     }

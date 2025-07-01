@@ -1,0 +1,45 @@
+# DeepSeek Chat API
+
+### Chat Client Simple Chat
+GET http://127.0.0.1:8081/client/simple
+
+### Chat Client Simple Chat
+GET http://127.0.0.1:8081/client/stream
+
+
+### Chat Model Stream Chat
+GET http://127.0.0.1:8081/model/stream/chat
+
+### Chat Model Stream Chat
+GET http://127.0.0.1:8081/model/simple/chat
+
+
+### Chat Model Stream Chat
+GET http://127.0.0.1:8081/model/tokens
+
+### Chat Model Stream Chat
+GET http://127.0.0.1:8081/model/custom/chat
+
+
+
+
+### 内存API
+GET http://localhost:8081/advisor/memory/in/call?query=你是谁&conversation_id=rstyro
+### 信息
+GET http://localhost:8081/advisor/memory/in/messages?conversation_id=rstyro
+
+### Redis Memory API
+GET http://localhost:8081/advisor/memory/redis/call?query=好无聊，给我讲一个笑话&conversation_id=yingzi
+### 信息
+GET http://localhost:8081/advisor/memory/redis/messages?conversation_id=yingzi
+
+### SQLite Memory API
+GET http://localhost:8081/advisor/memory/sqlite/call?query=你好，我的外号是影子，请记住呀&conversation_id=yingzi
+### 信息
+GET http://localhost:8081/advisor/memory/sqlite/messages?conversation_id=yingzi
+
+### Mysql Memory API
+GET http://localhost:8081/advisor/memory/mysql/call?query=我会使用电脑&conversation_id=yingzi
+### 信息
+http://localhost:8081/advisor/memory/mysql/messages?conversation_id=yingzi
+

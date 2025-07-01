@@ -8,9 +8,9 @@ import org.springframework.core.env.Environment;
 
 @Slf4j
 @SpringBootApplication
-public class AiChatApplication {
+public class AiDeepSeekChatApplication {
     public static void main(String[] args) {
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(AiChatApplication.class, args);
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(AiDeepSeekChatApplication.class, args);
         printfUrl(applicationContext);
     }
 

@@ -8,26 +8,24 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import top.lrshuai.ai.common.resp.R;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@RequestMapping("/chatModel")
+@RequestMapping("/model")
 @RestController
 public class ChatModelController {
 
     @Resource
-    @Qualifier("dashscopeChatModel")
     private ChatModel dashScopeChatModel;
 
-    private static final String DEFAULT_PROMPT = "你是一个博学的智能聊天助手，请根据用户提问回答！";
-    private static final String DEFAULT_QUESTION = "你好，很高兴认识你，能简单介绍一下自己吗？";
+    public static final String DEFAULT_QUESTION = "你好，很高兴认识你，能简单介绍一下自己吗？";
 
     /**
      * 最简单的使用方式，没有任何 LLMs 参数注入。
@@ -47,7 +45,8 @@ public class ChatModelController {
      * @return Flux<String> types.
      */
     @GetMapping("/stream/chat")
-    public Flux<String> streamChat(HttpServletResponse response,@RequestParam(value = "query", defaultValue = DEFAULT_QUESTION) String query) {
+    public Flux<String> streamChat(HttpServletResponse response
+            ,@RequestParam(value = "query", defaultValue = DEFAULT_QUESTION) String query) {
 
         // 避免返回乱码
         response.setCharacterEncoding("UTF-8");
@@ -60,10 +59,10 @@ public class ChatModelController {
     }
 
     /**
-     * 演示如何获取 LLM 得 token 信息
+     * 演示如何获取 LLM 的 token 信息
      */
     @GetMapping("/tokens")
-    public Map<String, Object> tokens(HttpServletResponse response,@RequestParam(value = "query", defaultValue = DEFAULT_QUESTION) String query) {
+    public Object tokens(@RequestParam(value = "query", defaultValue = DEFAULT_QUESTION) String query) {
 
         ChatResponse chatResponse = dashScopeChatModel.call(new Prompt(query, DashScopeChatOptions
                 .builder()
@@ -76,7 +75,7 @@ public class ChatModelController {
         res.put("input_token", chatResponse.getMetadata().getUsage().getPromptTokens());
         res.put("total_token", chatResponse.getMetadata().getUsage().getTotalTokens());
 
-        return res;
+        return R.ok(chatResponse);
     }
 
     /**

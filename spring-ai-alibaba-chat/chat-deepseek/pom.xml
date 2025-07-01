@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.lrshuai.ai</groupId>
+        <artifactId>spring-ai-alibaba-chat</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>chat-deepseek</artifactId>
+    <name>chat-deepseek</name>
+    <description>deepseek模型</description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>top.lrshuai.ai</groupId>
+            <artifactId>common-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- deepseek -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-model-deepseek</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

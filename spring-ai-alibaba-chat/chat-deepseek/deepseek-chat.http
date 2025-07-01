@@ -1,0 +1,16 @@
+# DeepSeek Chat API
+
+### Chat Client Simple Chat
+GET http://127.0.0.1:8082/client/ai/generate
+
+### Chat Client Stream Chat
+GET http://127.0.0.1:8082/client/ai/stream
+
+### Chat Client Custom Options Chat
+GET http://127.0.0.1:8082/client/ai/customOptions
+
+### Chat Model Stream Chat
+GET http://127.0.0.1:8082/model/stream/chat
+
+### Chat Model Stream Chat
+GET http://127.0.0.1:8082/model/simple/chat

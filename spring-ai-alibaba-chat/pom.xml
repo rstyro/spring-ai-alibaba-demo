@@ -16,6 +16,7 @@
 
     <modules>
         <module>chat-dashscope</module>
+        <module>chat-deepseek</module>
     </modules>
 
 </project>
