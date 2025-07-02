@@ -12,7 +12,7 @@
 
     <artifactId>spring-ai-alibaba-chat</artifactId>
     <packaging>pom</packaging>
-    <description>聊天相关</description>
+    <description>聊天相关demo</description>
 
     <modules>
         <module>chat-dashscope</module>

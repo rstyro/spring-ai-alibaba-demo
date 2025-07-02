@@ -37,6 +37,7 @@
 	 <module>commons</module>
         <module>spring-ai-alibaba-chat</module>
          <module>spring-ai-alibaba-image</module>
+         <module>spring-ai-alibaba-tool-call</module>
 
      </modules>
 
