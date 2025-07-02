@@ -1,0 +1,10 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: spring-ai-alibaba-image
+
+  ai:
+    dashscope:
+      api-key: ${AI_DASHSCOPE_API_KEY}
