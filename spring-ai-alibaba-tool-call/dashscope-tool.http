@@ -4,9 +4,14 @@
 GET http://127.0.0.1:8084/demo/ask?question=广州今天的天气怎样,不清楚就不要瞎说？
 
 ### 提问天气 通过函数
-GET http://127.0.0.1:8084/demo/askCall?question=广州今天的天气怎样,不清楚就不要瞎说？
+GET http://127.0.0.1:8084/demo/askFunction?question=广州今天的天气怎样,不清楚就不要瞎说？
+
+### 提问天气 通过callback函数
+GET http://127.0.0.1:8084/demo/askFunctionCallback?question=广州今天的天气怎样,不清楚就不要瞎说？
 
 ### 提问天气 通过方法工具
 GET http://127.0.0.1:8084/demo/askByTool?question=广州今天的天气怎样,不清楚就不要瞎说？
 
+### 提问天气 通过方法工具 toolCallback
+GET http://127.0.0.1:8084/demo/askByToolCallback?question=广州今天的天气怎样,不清楚就不要瞎说？
 
