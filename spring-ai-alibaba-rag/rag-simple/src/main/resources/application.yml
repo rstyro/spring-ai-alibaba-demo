@@ -1,0 +1,10 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: spring-ai-alibaba-rag-simple
+
+  ai:
+    dashscope:
+      api-key: ${AI_DASHSCOPE_API_KEY}

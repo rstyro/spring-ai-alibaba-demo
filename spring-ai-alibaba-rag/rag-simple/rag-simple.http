@@ -1,0 +1,7 @@
+# DeepSeek Chat API
+
+### rag简单示例
+GET http://127.0.0.1:8085/rag/simple
+
+
+

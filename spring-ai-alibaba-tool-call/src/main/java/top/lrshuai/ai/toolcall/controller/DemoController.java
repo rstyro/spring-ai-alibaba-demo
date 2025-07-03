@@ -18,6 +18,7 @@ import java.lang.reflect.Method;
 
 /**
  * demo 工具调用
+ * 文档地址：https://java2ai.com/docs/1.0.0.2/tutorials/basics/tool-calling/
  */
 @RestController
 @RequestMapping("/demo")
