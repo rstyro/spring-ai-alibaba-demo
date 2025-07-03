@@ -1,0 +1,12 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: spring-ai-alibaba-rag-bailian
+
+  ai:
+    dashscope:
+      api-key: ${AI_DASHSCOPE_API_KEY}
+      agent:
+        app-id: 0514ba9ca5044f0cb0a031ca276ebc34

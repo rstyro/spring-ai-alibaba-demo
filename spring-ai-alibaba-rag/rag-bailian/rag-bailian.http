@@ -1,0 +1,11 @@
+
+### rag 使用富婆通讯录智能体
+GET http://127.0.0.1:8086/rag/agent/call?question=我要查看名字有“美丽”中任意一个的富婆电话
+
+
+### rag 玄学智能体
+GET http://127.0.0.1:8086/rag/agent/call?question=我要知道“十恶大败”的神煞解释
+
+
+### 玄学 流式的需要浏览器访问，不然看不到效果
+GET http://127.0.0.1:8086/rag/agent/stream?question=我要知道“十恶大败”的神煞解释
