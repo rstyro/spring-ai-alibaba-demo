@@ -1,8 +1,17 @@
 # DeepSeek Chat API
 
 ### rag简单示例
-GET http://127.0.0.1:8085/rag/simple?prompt=文档ID=1的内容是什么
+GET http://127.0.0.1:8085/rag/simple?prompt=给一个富婆号码
 
+
+### ragAdvisor 简单示例
+GET http://127.0.0.1:8085/rag/ragAdvisor?prompt=给一个富婆号码
 
 ### rag简单示例
 GET http://127.0.0.1:8085/rag/search?query=号码
+
+### ragModule
+GET http://127.0.0.1:8085/ragModule/ragAdvisor?query=我什么时候会发财
+
+### ragModule 添加文档
+GET http://127.0.0.1:8085/ragModule/add
