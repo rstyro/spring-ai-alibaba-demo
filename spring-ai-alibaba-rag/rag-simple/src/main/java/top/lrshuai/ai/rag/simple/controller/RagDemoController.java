@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -30,6 +31,9 @@ public class RagDemoController {
     @Resource
     private ChatClient chatClient;
 
+    /**
+     * 知识库数据进行问答。
+     */
     @GetMapping("/simple")
     public String simpleRag(@RequestParam(value = "prompt", defaultValue = DEFAULT_PROMPT) String prompt) {
         // QuestionAnswerAdvisor是一个轻量级、开箱即用的 RAG 实现
@@ -37,8 +41,11 @@ public class RagDemoController {
         return chatClient.prompt(prompt).advisors(questionAnswerAdvisor).call().content();
     }
 
+    /**
+     * 获取相关知识库数据进行问答。
+     */
     @GetMapping("/ragAdvisor")
-    public String chatRagAdvisor(@RequestParam(value = "prompt", defaultValue = DEFAULT_PROMPT) String prompt) {
+    public Flux<String> chatRagAdvisor(@RequestParam(value = "prompt", defaultValue = DEFAULT_PROMPT) String prompt) {
         log.info("start chat with rag-advisor");
         // RetrievalAugmentationAdvisor 提供完整的 RAG 流程框架，支持高度定制化和模块化组合
         RetrievalAugmentationAdvisor retrievalAugmentationAdvisor = RetrievalAugmentationAdvisor.builder()
@@ -48,17 +55,20 @@ public class RagDemoController {
                 .build();
         return chatClient.prompt(prompt)
                 .advisors(retrievalAugmentationAdvisor)
-                .call().content();
+                .stream()
+                .content();
     }
 
+    /**
+     * 相似性搜索
+     * @param query 检索词
+     * @param topK 返回的相似文档数量
+     */
     @GetMapping("/search")
-    public List<Document> search(@RequestParam(defaultValue = "号码") String query) {
-        log.info("start search data");
-        return simpleVectorStore.similaritySearch(SearchRequest
-                .builder()
-                .query(query)
-                .topK(3)
-                .build());
+    public List<Document> search(@RequestParam(defaultValue = "号码") String query,@RequestParam(defaultValue = "3") Integer topK) {
+        log.info("执行相似性搜索，query={},topK={}", query,topK);
+        SearchRequest searchRequest = SearchRequest.builder().query(query).topK(topK).build();
+        return simpleVectorStore.similaritySearch(searchRequest);
     }
 
 }

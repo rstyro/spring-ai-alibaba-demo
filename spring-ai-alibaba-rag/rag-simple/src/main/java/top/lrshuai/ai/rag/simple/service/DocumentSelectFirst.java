@@ -32,7 +32,6 @@ public class DocumentSelectFirst implements DocumentPostProcessor {
 //                })
 //                .toList();
 
-
         // 取前 TOP_K 个文档
         List<Document> topK = documents.stream()
                 .sorted((d1, d2) -> Double.compare(d2.getScore(), d1.getScore()))

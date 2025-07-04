@@ -1,0 +1,7 @@
+# Chat API
+
+### rag 评估
+GET http://127.0.0.1:8087/ragEvalutaion/evalute?query=阿姨，我不想努力了
+
+### rag 添加文档
+GET http://127.0.0.1:8087/ragEvalutaion/add

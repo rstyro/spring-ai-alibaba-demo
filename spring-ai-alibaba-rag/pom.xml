@@ -15,6 +15,7 @@
     <modules>
         <module>rag-simple</module>
         <module>rag-bailian</module>
+        <module>rag-evaluation</module>
     </modules>
 
 

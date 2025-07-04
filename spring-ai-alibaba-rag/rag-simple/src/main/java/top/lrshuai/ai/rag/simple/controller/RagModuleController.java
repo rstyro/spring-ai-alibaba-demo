@@ -1,8 +1,8 @@
 package top.lrshuai.ai.rag.simple.controller;
 
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.EmbeddingModel;
@@ -12,14 +12,20 @@ import org.springframework.ai.rag.preretrieval.query.expansion.MultiQueryExpande
 import org.springframework.ai.rag.preretrieval.query.transformation.TranslationQueryTransformer;
 import org.springframework.ai.rag.retrieval.join.ConcatenationDocumentJoiner;
 import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
+import org.springframework.ai.reader.TextReader;
 import org.springframework.ai.vectorstore.SimpleVectorStore;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 import top.lrshuai.ai.rag.simple.service.DocumentSelectFirst;
 
-import java.util.HashMap;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,26 +41,43 @@ public class RagModuleController {
     private final SimpleVectorStore simpleVectorStore;
     private final ChatClient.Builder chatClientBuilder;
 
+    @Value("classpath:data/money.txt")
+    private Resource file;
+
     public RagModuleController(EmbeddingModel embeddingModel, ChatClient.Builder builder) {
         this.simpleVectorStore = SimpleVectorStore
                 .builder(embeddingModel).build();
         this.chatClientBuilder = builder;
     }
 
+    @SneakyThrows
     @GetMapping("/add")
-    public void add() {
+    public String add() {
         log.info("开始添加数据");
-        List<Document> documents = List.of(
+        // 验证文件是否存在
+        if (!file.exists()) {
+            return "文件不存在！路径：" + file.getURI();
+        }
+        // 读取文档
+        TextReader textReader = new TextReader(file);
+        List<Document> textDocumentList = textReader.get();
+
+        List<Document> documents = new ArrayList<>(List.of(
                 new Document("你的姓名是许愿池，问你什么时候发财，一般都是今年"),
                 new Document("如果你努力工作，保持积极的心态，那你今年会有好运，今年就会发财，好运往往会眷顾有准备的人！", Map.of("year", 2000)),
                 new Document("我在2026年之后开始一飞冲天，从此无病无灾，万事如意，八方来财", Map.of("year", 2026)),
                 new Document("我在2025年下半年开始转好运，财富得到积累", Map.of("year", 2025))
-        );
+        ));
+        documents.addAll(textDocumentList);
         simpleVectorStore.add(documents);
+        return "success";
     }
 
     @GetMapping("/ragAdvisor")
-    public String chatRagAdvisor(@RequestParam(value = "query", defaultValue = "我什么时候发财") String query) {
+    public Flux<String> chatRagAdvisor(@RequestParam(value = "query", defaultValue = "我什么时候发财") String query
+            , HttpServletResponse servletResponse) {
+        // 不加会乱码
+        servletResponse.setCharacterEncoding("UTF-8");
         log.info("开始RAG增加模式");
 
         // 1. Pre-Retrieval 查询预处理
@@ -108,6 +131,6 @@ public class RagModuleController {
 
         return this.chatClientBuilder.build().prompt(query)
                 .advisors(retrievalAugmentationAdvisor)
-                .call().content();
+                .stream().content();
     }
 }
