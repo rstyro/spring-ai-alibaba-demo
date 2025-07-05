@@ -39,6 +39,7 @@
          <module>spring-ai-alibaba-image</module>
          <module>spring-ai-alibaba-tool-call</module>
          <module>spring-ai-alibaba-rag</module>
+         <module>spring-ai-alibaba-audio</module>
 
      </modules>
 

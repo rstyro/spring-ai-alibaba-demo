@@ -1,0 +1,10 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: spring-ai-alibaba-tool-call
+
+  ai:
+    dashscope:
+      api-key: ${AI_DASHSCOPE_API_KEY}

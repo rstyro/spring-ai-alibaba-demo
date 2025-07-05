@@ -1,0 +1,14 @@
+# Chat API
+
+### 文字转语音1
+GET http://127.0.0.1:8088/tts/download?content=我是宇宙无敌美少女，喵喵喵~&voice=longwan&model=sambert-zhiya-v1
+
+### 文字转语音2
+GET http://127.0.0.1:8088/tts/stream?content=我是宇宙无敌美少女，喵喵喵~
+
+### 语音转文字
+GET http://127.0.0.1:8088/stt/audio
+
+
+### 语音转文字
+GET http://127.0.0.1:8088/stt/audioByFilePath?filePath=/hello_world_female2.wav&modelName=paraformer-realtime-v2
