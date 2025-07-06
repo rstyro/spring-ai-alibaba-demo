@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.lrshuai.ai</groupId>
+        <artifactId>spring-ai-alibaba-mcp</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>spring-ai-alibaba-quick-start</artifactId>
+    <packaging>pom</packaging>
+    <description>MCP快速开始</description>
+
+    <modules>
+        <module>mcp-server</module>
+        <module>mcp-client</module>
+    </modules>
+
+</project>
