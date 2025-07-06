@@ -7,7 +7,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>spring-ai-alibaba-quick-start</artifactId>
+    <artifactId>quick-start</artifactId>
     <packaging>pom</packaging>
     <description>MCP快速开始</description>
 

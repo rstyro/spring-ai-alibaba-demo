@@ -23,6 +23,11 @@ spring-ai-alibaba-demo
 - **spring-ai-alibaba-rag**  RAG相关demo
   - **rag-bailian**  基于阿里百炼模型的
   - **rag-evaluation** 这个是RAG评估结果
-  - **rag=simple**  这个是快速入门的RAG示例
+  - **rag-simple**  这个是快速入门的RAG示例
 - **spring-ai-alibaba-tool-call** 工具函数调用demo
-- 
+- **spring-ai-alibaba-audio** 语音合成与解析demo
+- **spring-ai-alibaba-mcp** MCP相关demo
+  - **quick-start** 快速开始
+    - **mcp-server** MCP服务
+    - **mcp-client** mcp客户端，测试
+    

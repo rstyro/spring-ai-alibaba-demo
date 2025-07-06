@@ -14,7 +14,7 @@
     <description>MCP相关demo</description>
 
     <modules>
-        <module>spring-ai-alibaba-quick-start</module>
+        <module>quick-start</module>
     </modules>
 
 

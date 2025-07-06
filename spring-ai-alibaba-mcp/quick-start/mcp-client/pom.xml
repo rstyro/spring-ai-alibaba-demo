@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>top.lrshuai.ai</groupId>
-        <artifactId>spring-ai-alibaba-quick-start</artifactId>
+        <artifactId>quick-start</artifactId>
         <version>${revision}</version>
     </parent>
 
