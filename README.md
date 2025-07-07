@@ -30,4 +30,5 @@ spring-ai-alibaba-demo
   - **quick-start** 快速开始
     - **mcp-server** MCP服务
     - **mcp-client** mcp客户端，测试
-    
+    - **mcp-server-webflux** MCP webflux服务
+    - **mcp-client-webflux** mcp webflux客户端，测试
