@@ -18,8 +18,8 @@ logging:
 # to allow the STDIO transport to work !!!
 # Config reference: https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html#_webflux_server_configuration
 spring:
-  main:
-    banner-mode: off
+  application:
+    name: mcp-client
   ai:
     dashscope:
       api-key: ${AI_DASHSCOPE_API_KEY}

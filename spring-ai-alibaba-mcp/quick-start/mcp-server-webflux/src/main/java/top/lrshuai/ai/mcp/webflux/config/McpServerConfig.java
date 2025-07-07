@@ -1,4 +1,4 @@
-package top.lrshuai.ai.mcp.quick.config;
+package top.lrshuai.ai.mcp.webflux.config;
 
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;

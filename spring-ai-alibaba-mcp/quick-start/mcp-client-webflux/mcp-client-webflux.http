@@ -1,0 +1,9 @@
+
+### MCP示例
+GET http://127.0.0.1:8092/client/ask?question=给我推荐几个资产超过88亿元的富婆
+
+### MCP示例
+GET http://127.0.0.1:8092/client/ask?question=给我推荐几个深圳的富婆
+
+### MCP示例
+GET http://127.0.0.1:8092/client/ask?question=给我推荐几个深圳资产超过10亿的富婆
