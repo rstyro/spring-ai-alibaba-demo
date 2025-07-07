@@ -3,8 +3,10 @@ package top.lrshuai.ai.mcp.client.controller;
 import jakarta.annotation.Resource;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.tool.ToolCallbackProvider;
-import org.springframework.web.bind.annotation.*;
-import top.lrshuai.ai.common.resp.R;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RequestMapping("/client")
@@ -21,16 +23,13 @@ public class DemoController {
                 .build();
     }
 
-    /**
-     * 默认询问天气
-     */
     @GetMapping("/ask")
-    public R ask(@RequestParam(value = "question", defaultValue = "深圳今天的天气怎样") String question) {
-        return R.ok(chatClient
+    public String ask(@RequestParam(value = "question", defaultValue = "给我推荐几个资产超过30亿元的富婆") String question) {
+        return chatClient
                 .prompt(question)
                 .toolCallbacks(toolCallbackProvider)
                 .call()
-                .content());
+                .content();
     }
 
 }

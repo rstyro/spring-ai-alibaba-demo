@@ -8,7 +8,7 @@ spring-ai-alibaba-demo
 
 ## 环境：
 
-- JDK21
+- JDK17
 - SpringBoot3.4.0
 - SpringAI 1.0.0
 - SpringAI Alibaba 1.0.0.2

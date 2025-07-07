@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class McpServerConfig {
 
     @Bean
-    public ToolCallbackProvider weatherTools(OpenMeteoService openMeteoService) {
-        return MethodToolCallbackProvider.builder().toolObjects(openMeteoService).build();
+    public ToolCallbackProvider weatherTools(RichWomanService richWomanService) {
+        return MethodToolCallbackProvider.builder().toolObjects(richWomanService).build();
     }
 
 }

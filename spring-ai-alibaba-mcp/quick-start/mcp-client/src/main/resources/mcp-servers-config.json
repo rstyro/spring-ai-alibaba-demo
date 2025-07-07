@@ -7,7 +7,7 @@
                 "-Dspring.main.web-application-type=none",
                 "-Dlogging.pattern.console=",
                 "-jar",
-                "E:\\GithubRepo\\spring-ai-alibaba-demo\\spring-ai-alibaba-mcp\\spring-ai-alibaba-quick-start\\mcp-server\\target\\mcp-server.jar"
+                "E:\\GithubRepo\\spring-ai-alibaba-demo\\spring-ai-alibaba-mcp\\quick-start\\mcp-server\\target\\mcp-server.jar"
             ],
             "env": {}
         }

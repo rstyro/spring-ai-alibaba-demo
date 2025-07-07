@@ -1,4 +1,6 @@
 
 ### rag 使用富婆通讯录智能体
-GET http://127.0.0.1:8090/client/ask?question=深圳今天的天气怎样
+GET http://127.0.0.1:8090/client/ask?question=给我推荐几个资产超过30亿元的富婆
+
+
 
