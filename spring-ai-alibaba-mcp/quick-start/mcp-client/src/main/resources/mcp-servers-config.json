@@ -1,6 +1,6 @@
 {
     "mcpServers": {
-        "weather": {
+        "richWoman": {
             "command": "java",
             "args": [
                 "-Dspring.ai.mcp.server.stdio=true",

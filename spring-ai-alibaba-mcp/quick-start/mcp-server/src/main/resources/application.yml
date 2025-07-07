@@ -10,7 +10,7 @@ spring:
   ai:
     mcp:
       server:
-        name: my-weather-server
+        name: rich-woman-server
         version: 0.0.1
         type: ASYNC  # Recommended for reactive applications
         # 配置 sse 的根路径，默认值为 /sse

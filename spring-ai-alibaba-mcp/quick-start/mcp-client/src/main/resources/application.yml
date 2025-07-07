@@ -33,6 +33,6 @@ spring:
           #     command: java
           #     args:
           #       - -jar
-          #       - E:\GithubRepo\spring-ai-alibaba-demo\spring-ai-alibaba-mcp\spring-ai-alibaba-quick-start\mcp-server\target\mcp-server.jar  # 放一个绝对路径，修改为server jar包所在位置
+          #       - E:\GithubRepo\spring-ai-alibaba-demo\spring-ai-alibaba-mcp\quick-start\mcp-server\target\mcp-server.jar  # 放一个绝对路径，修改为server jar包所在位置
   mandatory-file-encoding: UTF-8
 

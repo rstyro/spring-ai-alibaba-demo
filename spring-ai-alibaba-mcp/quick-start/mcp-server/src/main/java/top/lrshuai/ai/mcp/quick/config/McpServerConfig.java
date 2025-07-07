@@ -10,7 +10,8 @@ public class McpServerConfig {
 
     @Bean
     public ToolCallbackProvider weatherTools(RichWomanService richWomanService) {
-        return MethodToolCallbackProvider.builder().toolObjects(richWomanService).build();
+        return MethodToolCallbackProvider.builder()
+                .toolObjects(richWomanService).build();
     }
 
 }
