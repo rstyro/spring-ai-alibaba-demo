@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AiMcpNacosServerApplication {
+public class McpNacosServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AiMcpNacosServerApplication.class, args);
+        SpringApplication.run(McpNacosServerApplication.class, args);
     }
 
 

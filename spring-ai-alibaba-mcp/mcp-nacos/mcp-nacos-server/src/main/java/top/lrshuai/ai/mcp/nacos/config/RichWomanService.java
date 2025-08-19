@@ -1,6 +1,7 @@
 package top.lrshuai.ai.mcp.nacos.config;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
@@ -55,7 +56,7 @@ public class RichWomanService {
         this.initMockData();
     }
 
-//    @PostConstruct
+    @PostConstruct
     public void initMockData() {
         // 国内行业
         String[] industries = {"互联网科技", "房地产开发", "金融投资", "生物医药", "新能源", "影视娱乐",
@@ -149,11 +150,13 @@ public class RichWomanService {
         return formatRichWomen(result);
     }
 
-    @Tool(description = "获取资产在某个数值之上的富婆数据")
+    @Tool(description = "获取资产在某个数值之上的富婆数据,参数单位：亿元")
     public String findByFortuneGreaterThan(double minFortune) {
-        log.info("查询富婆，minFortune={}",minFortune);
+        // 单位转换：如果输入值大于1亿，转换为亿元单位
+        double actualMin = minFortune > 100_000_000 ? minFortune / 100_000_000 : minFortune;
+        log.info("查询富婆，minFortune={}，actualMin={}",minFortune,actualMin);
         List<RichWoman> result = database.stream()
-                .filter(w -> w.fortune() >= minFortune)
+                .filter(w -> w.fortune() >= actualMin)
                 .toList();
         return formatRichWomen(result);
     }

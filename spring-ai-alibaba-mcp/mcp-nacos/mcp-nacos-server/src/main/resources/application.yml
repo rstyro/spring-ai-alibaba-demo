@@ -9,7 +9,7 @@ spring:
       server:
         name: rich-woman-server
         version: 0.0.2
-        type: SYNC  # Recommended for reactive applications
+        type: ASYNC  # Recommended for reactive applications
         instructions: "富婆通讯录MCP服务"
         sse-message-endpoint: /mcp/messages
         capabilities:
@@ -28,6 +28,7 @@ spring:
           register:
             enabled: true
             service-group: mcp-server
+            # 服务名要和上面定义的mcp名称一样
             service-name: rich-woman-server
 
 

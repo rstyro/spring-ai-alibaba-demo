@@ -17,6 +17,7 @@
 
     <modules>
         <module>mcp-nacos-server</module>
+        <module>mcp-nacos-client</module>
     </modules>
 
 </project>
