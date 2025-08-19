@@ -1,6 +1,6 @@
 package top.lrshuai.ai.chat.controller.memory;
 
-import com.alibaba.cloud.ai.memory.redis.RedisChatMemoryRepository;
+import com.alibaba.cloud.ai.memory.redis.RedissonRedisChatMemoryRepository;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.MessageWindowChatMemory;
@@ -26,9 +26,9 @@ public class RedisMemoryController {
     private final int MAX_MESSAGES = 100;
     private final MessageWindowChatMemory messageWindowChatMemory;
 
-    public RedisMemoryController(ChatClient.Builder builder, RedisChatMemoryRepository redisChatMemoryRepository) {
+    public RedisMemoryController(ChatClient.Builder builder, RedissonRedisChatMemoryRepository redissonRedisChatMemoryRepository) {
         this.messageWindowChatMemory = MessageWindowChatMemory.builder()
-                .chatMemoryRepository(redisChatMemoryRepository)
+                .chatMemoryRepository(redissonRedisChatMemoryRepository)
                 .maxMessages(MAX_MESSAGES)
                 .build();
 

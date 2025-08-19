@@ -36,7 +36,7 @@ public class ChatModelController {
 
         return dashScopeChatModel.call(new Prompt(query, DashScopeChatOptions
                 .builder()
-                .withModel(DashScopeApi.ChatModel.QWEN_PLUS.getModel())
+                .withModel(DashScopeApi.ChatModel.QWEN_PLUS.getValue())
                 .build())).getResult().getOutput().getText();
     }
 
@@ -53,7 +53,7 @@ public class ChatModelController {
 
         Flux<ChatResponse> stream = dashScopeChatModel.stream(new Prompt(query, DashScopeChatOptions
                 .builder()
-                .withModel(DashScopeApi.ChatModel.QWEN_PLUS.getModel())
+                .withModel(DashScopeApi.ChatModel.QWEN_PLUS.getValue())
                 .build()));
         return stream.map(resp -> resp.getResult().getOutput().getText());
     }
@@ -66,7 +66,7 @@ public class ChatModelController {
 
         ChatResponse chatResponse = dashScopeChatModel.call(new Prompt(query, DashScopeChatOptions
                 .builder()
-                .withModel(DashScopeApi.ChatModel.QWEN_PLUS.getModel())
+                .withModel(DashScopeApi.ChatModel.QWEN_PLUS.getValue())
                 .build()));
 
         Map<String, Object> res = new HashMap<>();

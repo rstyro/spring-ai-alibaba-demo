@@ -1,7 +1,9 @@
 package top.lrshuai.ai.chat.config;
 
 import com.alibaba.cloud.ai.autoconfigure.memory.MysqlChatMemoryProperties;
+import com.alibaba.cloud.ai.autoconfigure.memory.redis.RedisChatMemoryProperties;
 import com.alibaba.cloud.ai.memory.jdbc.MysqlChatMemoryRepository;
+import com.alibaba.cloud.ai.memory.redis.RedissonRedisChatMemoryRepository;
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +27,9 @@ public class MemoryConfig {
 //	private String redisPassword;
 //	@Value("${spring.ai.memory.redis.timeout}")
 //	private int redisTimeout;
+
+	@Resource
+	private RedisChatMemoryProperties redisChatMemoryProperties;
 
 	@Resource
 	private MysqlChatMemoryProperties mysqlChatMemoryProperties;
@@ -53,14 +58,13 @@ public class MemoryConfig {
 				.build();
 	}
 
-//	@Bean
-//	public RedisChatMemoryRepository redisChatMemoryRepository() {
-//		return RedisChatMemoryRepository.builder()
-//				.host(redisHost)
-//				.port(redisPort)
-//				// 若没有设置密码则注释该项
-////				.password(redisPassword)
-//				.timeout(redisTimeout)
-//				.build();
-//	}
+	@Bean
+	public RedissonRedisChatMemoryRepository redissonRedisChatMemoryRepository() {
+		return RedissonRedisChatMemoryRepository.builder()
+				.host(redisChatMemoryProperties.getHost())
+				.port(redisChatMemoryProperties.getPort())
+				.password(redisChatMemoryProperties.getPassword())
+				.timeout(redisChatMemoryProperties.getTimeout())
+				.build();
+	}
 }

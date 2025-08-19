@@ -1,11 +1,9 @@
 package top.lrshuai.ai.audio.controller;
 
-import com.alibaba.cloud.ai.dashscope.audio.DashScopeSpeechSynthesisOptions;
+import com.alibaba.cloud.ai.dashscope.audio.DashScopeAudioSpeechOptions;
 import com.alibaba.cloud.ai.dashscope.audio.synthesis.SpeechSynthesisModel;
-import com.alibaba.cloud.ai.dashscope.audio.synthesis.SpeechSynthesisOptions;
 import com.alibaba.cloud.ai.dashscope.audio.synthesis.SpeechSynthesisPrompt;
 import com.alibaba.cloud.ai.dashscope.audio.synthesis.SpeechSynthesisResponse;
-import jakarta.annotation.PreDestroy;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -49,7 +47,8 @@ public class TTSController implements ApplicationRunner {
                                            @RequestParam(defaultValue = "sambert-zhichu-v1")String model,
                                            @RequestParam(required = false)String voice) {
         // 使用正确的实现类构建选项
-        DashScopeSpeechSynthesisOptions options = DashScopeSpeechSynthesisOptions.builder()
+        DashScopeAudioSpeechOptions options = DashScopeAudioSpeechOptions
+                .builder()
                 .model(model)
                 .volume(80)
                 .build();
