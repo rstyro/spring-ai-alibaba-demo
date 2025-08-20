@@ -30,6 +30,7 @@
         <lombok.version>1.18.30</lombok.version>
         <mysql.version>8.3.0</mysql.version>
         <jedis.version>5.2.0</jedis.version>
+        <hutool.version>5.8.39</hutool.version>
 
     </properties>
 
@@ -99,6 +100,14 @@
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
         </dependencies>
