@@ -9,7 +9,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>chat-multi-model</artifactId>
+    <artifactId>chat-multi-platform</artifactId>
 
     <dependencies>
 

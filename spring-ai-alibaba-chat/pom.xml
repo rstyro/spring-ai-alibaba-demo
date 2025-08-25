@@ -17,7 +17,7 @@
     <modules>
         <module>chat-dashscope</module>
         <module>chat-deepseek</module>
-        <module>chat-multi-model</module>
+        <module>chat-multi-platform</module>
     </modules>
 
 </project>
