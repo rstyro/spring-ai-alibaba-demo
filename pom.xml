@@ -42,6 +42,7 @@
          <module>spring-ai-alibaba-rag</module>
          <module>spring-ai-alibaba-audio</module>
          <module>spring-ai-alibaba-mcp</module>
+         <module>spring-ai-prompt</module>
 
      </modules>
 

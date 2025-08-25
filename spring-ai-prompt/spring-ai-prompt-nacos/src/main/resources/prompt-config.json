@@ -1,0 +1,9 @@
+[
+  {
+    "name":"idolTemplate",
+    "template":"列出 {name} 有名的电影",
+    "model":{
+      "key":"周星驰"
+    }
+  }
+]

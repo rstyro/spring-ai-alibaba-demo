@@ -1,0 +1,5 @@
+# 测试 prompt
+
+### 人设提问
+GET http://127.0.0.1:8095/prompt/ask?name=鲁迅&voice=严肃&question=他的经典语录
+

@@ -1,0 +1,24 @@
+server:
+  port: 8096
+
+spring:
+  application:
+    name: spring-ai-prompt-nacos
+
+  ai:
+    dashscope:
+      api-key: ${AI_DASHSCOPE_API_KEY}
+
+# 监听 prompt
+    nacos:
+      prompt:
+        template:
+          enabled: true
+  config:
+    import:
+      - "optional:nacos:spring.ai.alibaba.configurable.prompt"
+  nacos:
+    config:
+      username: nacos
+      password: Nacos@168
+      server-addr: 127.0.0.1:28848
