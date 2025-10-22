@@ -38,7 +38,7 @@ public class RichWomanService {
             "北京", "上海", "深圳", "广州", "杭州", "成都", "重庆", "南京",
             "武汉", "苏州", "天津", "西安", "长沙", "青岛", "郑州", "宁波",
             "厦门", "香港", "澳门", "台北", "佛山", "东莞", "无锡", "合肥",
-            "昆明", "大连", "沈阳", "济南", "福州", "珠海"
+            "昆明", "大连", "沈阳", "济南", "福州", "珠海","广西"
     );
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -142,7 +142,7 @@ public class RichWomanService {
     }
 
     @Tool(description = "通过城市名称获取富婆信息")
-    public String findByCityName(String cityName) {
+    public String findByCityName(@ToolParam(description = "城市名称") String cityName) {
         log.info("查询富婆，cityName={}",cityName);
         List<RichWoman> result = database.stream()
                 .filter(w -> w.city().contains(cityName.trim()))
@@ -151,7 +151,7 @@ public class RichWomanService {
     }
 
     @Tool(description = "获取资产在某个数值之上的富婆数据,参数单位：亿元")
-    public String findByFortuneGreaterThan(double minFortune) {
+    public String findByFortuneGreaterThan(@ToolParam(description = "资产字段，单位：亿元，可自行把资产转为亿元即可") double minFortune) {
         // 单位转换：如果输入值大于1亿，转换为亿元单位
         double actualMin = minFortune > 100_000_000 ? minFortune / 100_000_000 : minFortune;
         log.info("查询富婆，minFortune={}，actualMin={}",minFortune,actualMin);
@@ -162,7 +162,7 @@ public class RichWomanService {
     }
 
     @Tool(description = "通过关键词搜索富婆信息")
-    public String search(String keyword) {
+    public String search(@ToolParam(description = "搜索的关键词")String keyword) {
         log.info("查询富婆，keyword={}",keyword);
         String lowerKeyword = keyword.toLowerCase();
         List<RichWoman> result = database.stream()

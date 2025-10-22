@@ -1,0 +1,5 @@
+# DeepSeek Chat API
+
+### Chat Client Simple Chat
+GET http://127.0.0.1:8094/client/ask?question=给我推荐几个不超过30岁，且资产超过一百万元的广西富婆
+

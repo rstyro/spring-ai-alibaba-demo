@@ -19,6 +19,8 @@ public class DemoController {
 
     @Resource
     @Qualifier("loadbalancedMcpAsyncToolCallbacks")
+    // 同步
+//    @Qualifier("loadbalancedMcpSyncToolCallbacks")
     private ToolCallbackProvider toolCallbackProvider;
 
     public DemoController(ChatClient.Builder chatClientBuilder) {

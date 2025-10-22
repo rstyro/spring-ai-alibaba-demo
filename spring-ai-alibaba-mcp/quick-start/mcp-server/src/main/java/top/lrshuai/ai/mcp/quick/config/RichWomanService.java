@@ -141,7 +141,7 @@ public class RichWomanService {
     }
 
     @Tool(description = "通过城市名称获取富婆信息")
-    public String findByCityName(String cityName) {
+    public String findByCityName(@ToolParam(description = "城市名称") String cityName) {
         log.info("查询富婆，cityName={}",cityName);
         List<RichWoman> result = database.stream()
                 .filter(w -> w.city().contains(cityName.trim()))
@@ -150,7 +150,7 @@ public class RichWomanService {
     }
 
     @Tool(description = "获取资产在某个数值之上的富婆数据")
-    public String findByFortuneGreaterThan(double minFortune) {
+    public String findByFortuneGreaterThan(@ToolParam(description = "资产字段") double minFortune) {
         log.info("查询富婆，minFortune={}",minFortune);
         List<RichWoman> result = database.stream()
                 .filter(w -> w.fortune() >= minFortune)
@@ -159,7 +159,7 @@ public class RichWomanService {
     }
 
     @Tool(description = "通过关键词搜索富婆信息")
-    public String search(String keyword) {
+    public String search(@ToolParam(description = "关键词") String keyword) {
         log.info("查询富婆，keyword={}",keyword);
         String lowerKeyword = keyword.toLowerCase();
         List<RichWoman> result = database.stream()
