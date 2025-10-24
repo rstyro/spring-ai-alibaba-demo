@@ -16,6 +16,8 @@
         <module>mcp-client</module>
         <module>mcp-server-webflux</module>
         <module>mcp-client-webflux</module>
+        <module>mcp-server-annotations</module>
+        <module>mcp-client-annotations</module>
     </modules>
 
 </project>

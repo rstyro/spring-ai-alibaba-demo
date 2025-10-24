@@ -1,0 +1,25 @@
+server:
+  port: 8098
+
+spring:
+  application:
+    name: mcp-client-annotations
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: deepseek-r1
+
+
+    mcp:
+      client:
+        type: SYNC
+        initialized: true
+        request-timeout: 30s
+        annotation-scanner:
+          enabled: true
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8097

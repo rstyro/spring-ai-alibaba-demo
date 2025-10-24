@@ -1,0 +1,6 @@
+
+### MCP示例
+GET http://127.0.0.1:8098/client/ask?question=今日运势如何,我的名字是胖不了小陆
+
+
+
